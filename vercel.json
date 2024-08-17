@@ -1,10 +1,23 @@
 {
+  "version": 2,
   "builds": [
+    {
+      "src": "dist/server/entry-server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "dist/client/index.html",
+      "use": "@vercel/static"
+    },
     {
       "src": "dist/static/**/*",
       "use": "@vercel/static"
     }
   ],
-  "rewrites": [{ "source": "/(.*)", "destination": "/$1" }],
-  "cleanUrls": true
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/dist/server/entry-server.js"
+    }
+  ]
 }
