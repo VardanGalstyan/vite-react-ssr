@@ -1,0 +1,10 @@
+{
+  "builds": [
+    {
+      "src": "dist/static/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [{ "src": "/(.*)", "dest": "/$1" }],
+  "cleanUrls": true
+}
